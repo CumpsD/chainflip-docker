@@ -33,7 +33,9 @@ VOLUME /chainflip/logs \
        /chainflip/chaindata
 
 FROM base AS engine
-ENTRYPOINT [ "/chainflip/bin/chainflip-engine" ]
+ENTRYPOINT [ "" ]
+CMD /chainflip/bin/chainflip-engine \
+    --config-path /chainflip/config/chainflip.toml
 
 FROM base AS cli
 ENTRYPOINT [ "/chainflip/bin/chainflip-cli" ]
@@ -76,5 +78,6 @@ CMD [ ! -f /chainflip/config/keys ]        && /chainflip/bin/subkey generate > /
 
 # docker run --rm -it -v ${PWD}/config:/chainflip/config chainflip-keys
 # docker run --rm -it -v ${PWD}/config:/chainflip/config -v ${PWD}/chaindata:/chainflip/chaindata chainflip-node
+# docker run --rm -it -v ${PWD}/config:/chainflip/config -v ${PWD}/chaindata:/chainflip/chaindata chainflip-engine
 
 # docker run --rm -it chainflip-cli

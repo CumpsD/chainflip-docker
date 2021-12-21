@@ -1,2 +1,5 @@
-config/
+config/*
+!config/chainflip.toml
+
 chaindata/
+chaindata/*

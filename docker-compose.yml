@@ -17,18 +17,6 @@ services:
   #     - $PWD/geth-data:/root/.ethereum
   #   command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
 
-  # chainflip-engine:
-  #   container_name: chainflip-engine
-  #   image: cumpsd/chainflip-engine:0.1.0
-  #   restart: always
-  #   networks:
-  #    - chainflip-net
-  #   volumes:
-  #     - $PWD/chainflip_config:/chainflip/config:ro
-  #   command: --config-path /chainflip/config/Default.toml
-  #   depends_on:
-  #     - keys
-
   chainflip-node:
     container_name: chainflip-node
     image: chainflip-node
@@ -39,6 +27,18 @@ services:
       - 30333:30333
     expose:
       - 9944
+    volumes:
+      - ./config:/chainflip/config:ro
+      - ./chaindata:/chainflip/chaindata
+    depends_on:
+      - keys
+
+  chainflip-engine:
+    container_name: chainflip-engine
+    image: chainflip-engine
+    restart: always
+    networks:
+     - chainflip
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata
