@@ -41,6 +41,9 @@ FROM base AS cli
 ENTRYPOINT [ "/chainflip/bin/chainflip-cli" ]
 
 FROM base AS node
+EXPOSE 9944
+EXPOSE 9615
+EXPOSE 30333
 ENTRYPOINT [ "" ]
 CMD /chainflip/bin/chainflip-node \
     --chain soundcheck \
@@ -51,6 +54,7 @@ CMD /chainflip/bin/chainflip-node \
     --port 30333 \
     --validator \
     --ws-max-out-buffer-capacity 3000 \
+    --unsafe-ws-external \
     --bootnodes /ip4/165.22.70.65/tcp/30333/p2p/12D3KooW9yoE6qjRG9Bp5JB2JappsU9V5bck1nUDSNRR2ye3dFbU
 
 FROM base AS subkey

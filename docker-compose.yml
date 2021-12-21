@@ -27,6 +27,7 @@ services:
       - 30333:30333
     expose:
       - 9944
+      - 9615
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata
