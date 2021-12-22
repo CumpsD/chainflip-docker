@@ -3,7 +3,11 @@ version: '3.8'
 services:
   keys:
     container_name: chainflip-keys
-    image: ghcr.io/cumpsd/chainflip-keys:latest
+    build:
+      context: .
+      target: keys
+      args:
+        CHAINFLIP_VERSION: 0.1.0
     volumes:
       - ./config:/chainflip/config
 
@@ -19,7 +23,11 @@ services:
 
   chainflip-node:
     container_name: chainflip-node
-    image: ghcr.io/cumpsd/chainflip-node:latest
+    build:
+      context: .
+      target: node
+      args:
+        CHAINFLIP_VERSION: 0.1.0
     restart: always
     networks:
      - chainflip
@@ -37,7 +45,11 @@ services:
 
   chainflip-engine:
     container_name: chainflip-engine
-    image: ghcr.io/cumpsd/chainflip-engine:latest
+    build:
+      context: .
+      target: engine
+      args:
+        CHAINFLIP_VERSION: 0.1.0
     restart: always
     networks:
      - chainflip
