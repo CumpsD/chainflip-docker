@@ -55,6 +55,9 @@ CMD /chainflip/bin/chainflip-node \
     --validator \
     --ws-max-out-buffer-capacity 3000 \
     --unsafe-ws-external \
+    --unsafe-rpc-external \
+    --prometheus-external \
+    --allow-private-ipv4 \
     --bootnodes /ip4/165.22.70.65/tcp/30333/p2p/12D3KooW9yoE6qjRG9Bp5JB2JappsU9V5bck1nUDSNRR2ye3dFbU
 
 FROM base AS subkey
