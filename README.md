@@ -2,6 +2,7 @@
 
 ## TODO
 
+* expose geth ports
 * add ethereum-key input dialog
 * check expose vs ports
 * Investigate `Thread 'tokio-runtime-worker' panicked at 'Storage root must match that calculated.', /usr/local/cargo/git/checkouts/substrate-a7ad12d678bd31ac/e563465/frame/executive/src/lib.rs:472`
