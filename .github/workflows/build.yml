@@ -1,6 +1,6 @@
 name: Build
 
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
 
 env:
   DOCKER_REGISTRY: ghcr.io
@@ -47,7 +47,7 @@ jobs:
             ghcr.io/${{ github.repository }}-engine
           tags: |
             type=sha
-            type=raw,value=${{ env.CHAINFLIP_VERSION }}.${{ github.run_number }}
+            type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
           flavor: |
             latest=true
 
@@ -72,7 +72,7 @@ jobs:
             ghcr.io/${{ github.repository }}-cli
           tags: |
             type=sha
-            type=raw,value=${{ env.CHAINFLIP_VERSION }}.${{ github.run_number }}
+            type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
           flavor: |
             latest=true
 
@@ -97,7 +97,7 @@ jobs:
             ghcr.io/${{ github.repository }}-node
           tags: |
             type=sha
-            type=raw,value=${{ env.CHAINFLIP_VERSION }}.${{ github.run_number }}
+            type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
           flavor: |
             latest=true
 
@@ -122,7 +122,7 @@ jobs:
             ghcr.io/${{ github.repository }}-subkey
           tags: |
             type=sha
-            type=raw,value=${{ env.CHAINFLIP_VERSION }}.${{ github.run_number }}
+            type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
           flavor: |
             latest=true
 
@@ -147,7 +147,7 @@ jobs:
             ghcr.io/${{ github.repository }}-keys
           tags: |
             type=sha
-            type=raw,value=${{ env.CHAINFLIP_VERSION }}.${{ github.run_number }}
+            type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
           flavor: |
             latest=true
 
