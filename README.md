@@ -25,6 +25,14 @@ The following ports should be opened on your firewall:
 * 30303 TCP & UDP, used by Geth
 * 30333 TCP & UDP, used by Chainflip Node
 
+## Updating
+
+```bash
+docker-compose pull
+docker-compose up -d --remove-orphans
+docker image prune
+```
+
 ## Building
 
 ### Testing Docker Compose
