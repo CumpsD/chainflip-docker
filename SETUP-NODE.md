@@ -71,6 +71,7 @@ jq -r ."ss58Address" ~/chainflip/config/keys
 ## View output
 
 ```bash
+cd ~/chainflip
 docker-compose logs -f
 ```
 
