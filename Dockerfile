@@ -10,8 +10,9 @@ RUN apt-get update && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV CHAINFLIP_VERSION="0.1.0" \
-    CHAINFLIP_TAR="chainflip.tar.gz"
+ARG CHAINFLIP_VERSION
+
+ENV CHAINFLIP_TAR="chainflip.tar.gz"
 
 ENV CHAINFLIP_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/${CHAINFLIP_TAR}" \
     SUBKEY_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/subkey"
