@@ -44,7 +44,7 @@ jobs:
         uses: docker/metadata-action@v3.6.2
         with:
           images: |
-            ghcr.io/${{ github.repository }}-engine
+            ghcr.io/cumpsd/chainflip-engine
           tags: |
             type=sha
             type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
@@ -69,7 +69,7 @@ jobs:
         uses: docker/metadata-action@v3.6.2
         with:
           images: |
-            ghcr.io/${{ github.repository }}-cli
+            ghcr.io/cumpsd/chainflip-cli
           tags: |
             type=sha
             type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
@@ -94,7 +94,7 @@ jobs:
         uses: docker/metadata-action@v3.6.2
         with:
           images: |
-            ghcr.io/${{ github.repository }}-node
+            ghcr.io/cumpsd/chainflip-node
           tags: |
             type=sha
             type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
@@ -119,7 +119,7 @@ jobs:
         uses: docker/metadata-action@v3.6.2
         with:
           images: |
-            ghcr.io/${{ github.repository }}-subkey
+            ghcr.io/cumpsd/chainflip-subkey
           tags: |
             type=sha
             type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}
@@ -144,7 +144,7 @@ jobs:
         uses: docker/metadata-action@v3.6.2
         with:
           images: |
-            ghcr.io/${{ github.repository }}-keys
+            ghcr.io/cumpsd/chainflip-keys
           tags: |
             type=sha
             type=raw,value=${{ env.CHAINFLIP_VERSION }}-${{ github.run_number }}

@@ -2,12 +2,9 @@
 
 ## TODO
 
-* publish images
 * docker-compose up -d
-* add engine and geth
 * add ethereum-key input dialog
 * check expose vs ports
-* blocked connection to WebSockets server with untrusted host: Some("chainflip-node:9944")
 
 ## Running
 
