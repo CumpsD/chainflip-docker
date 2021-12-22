@@ -69,7 +69,7 @@ ENTRYPOINT [ "/chainflip/bin/subkey" ]
 FROM subkey AS keys
 ENTRYPOINT [ "" ]
 CMD [ ! -f /chainflip/config/keys ]        && /chainflip/bin/subkey generate --output-type json > /chainflip/config/keys ; \
-    [ ! -f /chainflip/config/signing_key ] && jq -r .secretSeed /chainflip/config/keys | cut -c 3- > /chainflip/config/signing_key && echo "Generated signing key." ; \
+    [ ! -f /chainflip/config/signing_key ] && jq -j -r .secretSeed /chainflip/config/keys | cut -c 3- | tr -d '\n' > /chainflip/config/signing_key && echo "Generated signing key." ; \
     [ ! -f /chainflip/config/node_key ]    && /chainflip/bin/subkey generate-node-key --file /chainflip/config/node_key 2> /dev/null && echo "Generated node key."
 
 # Resulting filesystem:
