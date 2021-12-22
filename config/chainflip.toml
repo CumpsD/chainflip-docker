@@ -7,7 +7,7 @@ signing_key_file = "/chainflip/config/signing_key"
 
 [eth]
 from_block = 9810000
-node_endpoint = "wss://rinkeby.infura.io/ws/v3/7fb203a7ed3d41f4be5ff9309446ea02"
+node_endpoint = "wss://geth-rinkeby-light:8546"
 private_key_file = "/chainflip/config/ethereum_key"
 
 [health_check]

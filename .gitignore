@@ -3,3 +3,6 @@ config/*
 
 chaindata/
 chaindata/*
+
+geth-data/
+geth-data/*

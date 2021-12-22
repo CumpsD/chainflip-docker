@@ -7,15 +7,15 @@ services:
     volumes:
       - ./config:/chainflip/config
 
-  # geth-rinkeby-light:
-  #   container_name: geth-rinkeby-light
-  #   image: ethereum/client-go:alltools-stable
-  #   restart: always
-  #   networks:
-  #    - chainflip-net
-  #   volumes:
-  #     - $PWD/geth-data:/root/.ethereum
-  #   command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
+  geth:
+    container_name: geth-rinkeby-light
+    image: ethereum/client-go:alltools-stable
+    restart: always
+    networks:
+     - chainflip
+    volumes:
+      - ./geth-data:/root/.ethereum
+    command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
 
   chainflip-node:
     container_name: chainflip-node
@@ -33,18 +33,19 @@ services:
       - ./chaindata:/chainflip/chaindata
     depends_on:
       - keys
+      - geth
 
-  chainflip-engine:
-    container_name: chainflip-engine
-    image: chainflip-engine
-    restart: always
-    networks:
-     - chainflip
-    volumes:
-      - ./config:/chainflip/config:ro
-      - ./chaindata:/chainflip/chaindata
-    depends_on:
-      - keys
+  # chainflip-engine:
+  #   container_name: chainflip-engine
+  #   image: chainflip-engine
+  #   restart: always
+  #   networks:
+  #    - chainflip
+  #   volumes:
+  #     - ./config:/chainflip/config:ro
+  #     - ./chaindata:/chainflip/chaindata
+  #   depends_on:
+  #     - keys
 
 networks:
   chainflip:
