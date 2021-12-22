@@ -6,7 +6,8 @@
 * docker-compose up -d
 * add engine and geth
 * add ethereum-key input dialog
-* double check networks
+* check expose vs ports
+* blocked connection to WebSockets server with untrusted host: Some("chainflip-node:9944")
 
 ## Running
 
