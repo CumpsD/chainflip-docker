@@ -13,6 +13,10 @@ services:
     restart: always
     networks:
      - chainflip
+    ports:
+      - 30303:30303
+    expose:
+      - 8546
     volumes:
       - ./geth-data:/root/.ethereum
     command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
@@ -25,9 +29,9 @@ services:
      - chainflip
     ports:
       - 30333:30333
+      - 9615:9615
     expose:
       - 9944
-      - 9615
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata
@@ -43,7 +47,7 @@ services:
      - chainflip
     volumes:
       - ./config:/chainflip/config:ro
-      - ./chaindata:/chainflip/chaindata
+      - ./chaindata:/chainflip/chaindata:ro
     depends_on:
       - keys
 

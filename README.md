@@ -1,12 +1,5 @@
 # chainflip-docker
 
-## TODO
-
-* expose geth ports
-* add ethereum-key input dialog
-* check expose vs ports
-* Investigate `Thread 'tokio-runtime-worker' panicked at 'Storage root must match that calculated.', /usr/local/cargo/git/checkouts/substrate-a7ad12d678bd31ac/e563465/frame/executive/src/lib.rs:472`
-
 ## Running
 
 ⚠️⚠️ **Add `config/ethereum_key` first** ⚠️⚠️
@@ -14,6 +7,23 @@
 ```bash
 docker-compose up -d
 ```
+
+To view and backup your keys:
+
+```bash
+cat config/keys
+cat config/node_key
+cat config/signing_key
+cat config/ethereum_key
+```
+
+## Firewall
+
+The following ports should be opened on your firewall:
+
+* 9615 TCP, used by Prometheus
+* 30303 TCP & UDP, used by Geth
+* 30333 TCP & UDP, used by Chainflip Node
 
 ## Building
 
