@@ -4,6 +4,7 @@ LABEL maintainer="David Cumps <david@cumps.be>"
 
 RUN apt-get update && \
     apt-get install -y \
+        jq \
         wget \
         libssl1.1 \
         ca-certificates && \
@@ -67,8 +68,8 @@ ENTRYPOINT [ "/chainflip/bin/subkey" ]
 
 FROM subkey AS keys
 ENTRYPOINT [ "" ]
-CMD [ ! -f /chainflip/config/keys ]        && /chainflip/bin/subkey generate > /chainflip/config/keys ; \
-    [ ! -f /chainflip/config/signing_key ] && echo -n "$(grep 'Secret seed:' /chainflip/config/keys | cut -d':' -f2 | xargs | sed -e 's/0x//g')" > /chainflip/config/signing_key && echo "Generated signing key." ; \
+CMD [ ! -f /chainflip/config/keys ]        && /chainflip/bin/subkey generate --output-type json > /chainflip/config/keys ; \
+    [ ! -f /chainflip/config/signing_key ] && jq -r .secretSeed /chainflip/config/keys | cut -c 3- > /chainflip/config/signing_key && echo "Generated signing key." ; \
     [ ! -f /chainflip/config/node_key ]    && /chainflip/bin/subkey generate-node-key --file /chainflip/config/node_key 2> /dev/null && echo "Generated node key."
 
 # Resulting filesystem:

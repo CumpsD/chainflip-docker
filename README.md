@@ -1,9 +1,5 @@
 # chainflip-docker
 
-## TODO
-
-* `subkey generate --output-type json` and `jq`
-
 ## Running
 
 ⚠️⚠️ **Add `config/ethereum_key` first** ⚠️⚠️
