@@ -35,17 +35,17 @@ services:
       - keys
       - geth
 
-  # chainflip-engine:
-  #   container_name: chainflip-engine
-  #   image: chainflip-engine
-  #   restart: always
-  #   networks:
-  #    - chainflip
-  #   volumes:
-  #     - ./config:/chainflip/config:ro
-  #     - ./chaindata:/chainflip/chaindata
-  #   depends_on:
-  #     - keys
+  chainflip-engine:
+    container_name: chainflip-engine
+    image: chainflip-engine
+    restart: always
+    networks:
+     - chainflip
+    volumes:
+      - ./config:/chainflip/config:ro
+      - ./chaindata:/chainflip/chaindata
+    depends_on:
+      - keys
 
 networks:
   chainflip:

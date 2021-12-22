@@ -58,6 +58,7 @@ CMD /chainflip/bin/chainflip-node \
     --unsafe-rpc-external \
     --prometheus-external \
     --allow-private-ipv4 \
+    --rpc-cors "*" \
     --bootnodes /ip4/165.22.70.65/tcp/30333/p2p/12D3KooW9yoE6qjRG9Bp5JB2JappsU9V5bck1nUDSNRR2ye3dFbU
 
 FROM base AS subkey
