@@ -12,7 +12,7 @@ services:
       - ./config:/chainflip/config
 
   geth:
-    container_name: geth-rinkeby-light
+    container_name: chainflip-geth
     image: ethereum/client-go:alltools-stable
     restart: always
     networks:
