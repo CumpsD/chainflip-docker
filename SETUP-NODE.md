@@ -8,6 +8,7 @@ Start a fresh Ubuntu server and run the following commands.
 sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-get install \
+    jq \
     ca-certificates \
     curl \
     gnupg \
@@ -36,8 +37,8 @@ sudo reboot
 Login and run the following commands.
 
 ```bash
-git clone https://github.com/CumpsD/chainflip-docker chainflip
-echo "YOUR_PRIVATE_ETH_KEY" > chainflip/config/ethereum_key
+git clone https://github.com/CumpsD/chainflip-docker ~/chainflip
+echo "YOUR_PRIVATE_ETH_KEY" > ~/chainflip/config/ethereum_key
 ```
 
 ## Run Chainflip
@@ -45,8 +46,26 @@ echo "YOUR_PRIVATE_ETH_KEY" > chainflip/config/ethereum_key
 You are now ready! Run the following commands.
 
 ```bash
-cd chainflip
+cd ~/chainflip
 docker-compose up -d
+```
+
+## Save your keys
+
+Save the following keys somewhere safe.
+
+```bash
+cat ~/chainflip/config/keys
+cat ~/chainflip/config/node_key
+cat ~/chainflip/config/signing_key
+```
+
+## Save your Validator Id
+
+Save this Id for later usage. You will need it for staking.
+
+```bash
+jq -r ."ss58Address" ~/chainflip/config/keys
 ```
 
 ## View output
