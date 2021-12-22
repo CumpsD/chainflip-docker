@@ -1,5 +1,12 @@
 version: '3.8'
 
+x-logging:
+  &default-logging
+  driver: json-file
+  options:
+    max-size: '20m'
+    max-file: '5'
+
 services:
   keys:
     container_name: chainflip-keys
@@ -8,15 +15,21 @@ services:
       target: keys
       args:
         CHAINFLIP_VERSION: 0.1.0
+    logging: *default-logging
     volumes:
       - ./config:/chainflip/config
 
   geth:
     container_name: chainflip-geth
     image: ethereum/client-go:alltools-stable
+    logging: *default-logging
     restart: always
     networks:
      - chainflip
+    ports:
+      - 30303:30303
+    expose:
+      - 8546
     volumes:
       - ./geth-data:/root/.ethereum
     command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
@@ -28,14 +41,15 @@ services:
       target: node
       args:
         CHAINFLIP_VERSION: 0.1.0
+    logging: *default-logging
     restart: always
     networks:
      - chainflip
     ports:
       - 30333:30333
+      - 9615:9615
     expose:
       - 9944
-      - 9615
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata
@@ -50,12 +64,13 @@ services:
       target: engine
       args:
         CHAINFLIP_VERSION: 0.1.0
+    logging: *default-logging
     restart: always
     networks:
      - chainflip
     volumes:
       - ./config:/chainflip/config:ro
-      - ./chaindata:/chainflip/chaindata
+      - ./chaindata:/chainflip/chaindata:ro
     depends_on:
       - keys
 

@@ -1,15 +1,24 @@
 version: '3.8'
 
+x-logging:
+  &default-logging
+  driver: json-file
+  options:
+    max-size: '20m'
+    max-file: '5'
+
 services:
   keys:
     container_name: chainflip-keys
     image: ghcr.io/cumpsd/chainflip-keys:latest
+    logging: *default-logging
     volumes:
       - ./config:/chainflip/config
 
   geth:
     container_name: chainflip-geth
     image: ethereum/client-go:alltools-stable
+    logging: *default-logging
     restart: always
     networks:
      - chainflip
@@ -24,6 +33,7 @@ services:
   chainflip-node:
     container_name: chainflip-node
     image: ghcr.io/cumpsd/chainflip-node:latest
+    logging: *default-logging
     restart: always
     networks:
      - chainflip
@@ -42,6 +52,7 @@ services:
   chainflip-engine:
     container_name: chainflip-engine
     image: ghcr.io/cumpsd/chainflip-engine:latest
+    logging: *default-logging
     restart: always
     networks:
      - chainflip
