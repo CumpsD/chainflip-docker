@@ -28,7 +28,7 @@ services:
       - 8546
     volumes:
       - ./geth-data:/root/.ethereum
-    command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
+    command: geth --rinkeby --syncmode "snap" --ws --ws.addr "0.0.0.0" --ws.origins "*"
 
   chainflip-node:
     container_name: chainflip-node

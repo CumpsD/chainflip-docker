@@ -25,14 +25,14 @@ services:
     logging: *default-logging
     restart: always
     networks:
-     - chainflip
+      - chainflip
     ports:
       - 30303:30303
     expose:
       - 8546
     volumes:
       - ./geth-data:/root/.ethereum
-    command: geth --rinkeby --syncmode "light" --ws --ws.addr "0.0.0.0" --ws.origins "*"
+    command: geth --rinkeby --syncmode "snap" --ws --ws.addr "0.0.0.0" --ws.origins "*"
 
   chainflip-node:
     container_name: chainflip-node
@@ -44,7 +44,7 @@ services:
     logging: *default-logging
     restart: always
     networks:
-     - chainflip
+      - chainflip
     ports:
       - 30333:30333
       - 9615:9615
@@ -67,12 +67,14 @@ services:
     logging: *default-logging
     restart: always
     networks:
-     - chainflip
+      - chainflip
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata:ro
     depends_on:
       - keys
+      - geth
+      - chainflip-node
 
 networks:
   chainflip:
