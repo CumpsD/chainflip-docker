@@ -61,6 +61,8 @@ services:
       - ./chaindata:/chainflip/chaindata:ro
     depends_on:
       - keys
+      - geth
+      - chainflip-node
 
 networks:
   chainflip:
