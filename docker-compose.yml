@@ -21,7 +21,7 @@ services:
     logging: *default-logging
     restart: always
     networks:
-     - chainflip
+      - chainflip
     ports:
       - 30303:30303
     expose:
@@ -36,7 +36,7 @@ services:
     logging: *default-logging
     restart: always
     networks:
-     - chainflip
+      - chainflip
     ports:
       - 30333:30333
       - 9615:9615
@@ -55,7 +55,7 @@ services:
     logging: *default-logging
     restart: always
     networks:
-     - chainflip
+      - chainflip
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata:ro
