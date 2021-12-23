@@ -84,3 +84,28 @@ chainflip-engine    | {"msg":"Initalising State Chain state at block `34816`; bl
 chainflip-engine    | thread 'main' panicked at 'Failed to connect to state chain: AccountId 4a21d305010112570ff0da53fab57b85d980849139109717bb24e6b28baf9a07 (5DjuSy9m...) doesn't exist on the state chain. Please ensure you have staked and can see your stake on chain.', engine/src/main.rs:44:14
 chainflip-engine    | note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
+
+Go to the [Staking App](https://not.yet/) and click [My Nodes](https://not.yet)
+
+Click **+ Add a node** and stake your FLIP with the Validator Id you retrieved earlier.
+
+Sign the transaction and wait until it is confirmed. The transaction will look something like this: [0x156a03a1c92dd5e0f1806d2c2605f11cc732a7a887765ad2a0b39e7cd5bdf384](https://rinkeby.etherscan.io/tx/0x156a03a1c92dd5e0f1806d2c2605f11cc732a7a887765ad2a0b39e7cd5bdf384)
+
+At this point your node should appear on the [Staking App](https://not.yet/).
+
+## Set Validator keys
+
+Run the following command to set the keys that your Validator will use to produce blocks.
+
+```bash
+docker exec -it chainflip-node /chainflip/bin/chainflip-cli -c /chainflip/config/chainflip.toml rotate
+```
+
+This will rotate your key and output something like:
+
+```
+Connecting to state chain node at: `ws://chainflip-node:9944` and using private key located at: `/chainflip/config/signing_key`
+Session key rotated at tx 0xa671c8ea4583e1b4c3eb136603285f1652a0836afe47e1397349a32ad711f711.
+```
+
+You can use this tx to look it up on the [Explorer App](https://not.yet).
