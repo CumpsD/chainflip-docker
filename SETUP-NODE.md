@@ -38,7 +38,7 @@ Login and run the following commands.
 
 ```bash
 git clone https://github.com/CumpsD/chainflip-docker ~/chainflip
-echo "YOUR_PRIVATE_ETH_KEY" > ~/chainflip/config/ethereum_key
+echo -n "YOUR_PRIVATE_ETH_KEY" > ~/chainflip/config/ethereum_key
 ```
 
 ## Run Chainflip
