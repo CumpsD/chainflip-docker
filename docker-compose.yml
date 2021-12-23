@@ -42,6 +42,7 @@ services:
       - 9615:9615
     expose:
       - 9944
+      - 9933
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata
