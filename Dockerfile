@@ -91,4 +91,4 @@ CMD [ ! -f /chainflip/config/keys ]        && /chainflip/bin/subkey generate --o
 # docker run --rm -it -v ${PWD}/config:/chainflip/config -v ${PWD}/chaindata:/chainflip/chaindata chainflip-node
 # docker run --rm -it -v ${PWD}/config:/chainflip/config -v ${PWD}/chaindata:/chainflip/chaindata chainflip-engine
 
-# docker run --rm -it chainflip-cli
+# docker run --rm -it -v ${PWD}/config:/chainflip/config chainflip-cli
