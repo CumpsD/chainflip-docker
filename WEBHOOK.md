@@ -1,6 +1,12 @@
 # Health Checker
 
-Create a Discord webhook and configure the following script with the url and your Validator Id.
+## Script
+
+Create a Discord webhook and save the webhook url.
+
+Save the following as `health.sh` using your webhook url and Validator Id.
+
+Make it executable with `chmod +x health.sh`
 
 Put it in a cron job and you can check the health of your node.
 
@@ -20,8 +26,6 @@ NODE_STATUS=$(curl 'https://state-chain-cache.chainflip.io/graphql' -s \
   --data-binary '{"query":"{query:auctions{bids {nodeId, nodeStatus}}}"}' \
   --compressed | jq -r --arg NODE_ID "$NODE_ID"  '.data.query[0].bids[] | select(.nodeId==$NODE_ID) | .nodeStatus')
 
-echo $NODE_STATUS
-
 if [ $NODE_STATUS = "active" ] || [ $NODE_STATUS = "backup" ] || [ $NODE_STATUS = "online" ]; then
   echo "Node Online"
 else
@@ -31,4 +35,12 @@ else
    -d '{"username": "chainflip", "content": "Bad news...Chainflip Node '"$NODE_ID"' is offline!"}' \
    $WEBHOOK_URL
 fi
+```
+
+## Cron Job
+
+An example to run the script every 10 minutes.
+
+```
+*/10 * * * * /home/ubuntu/chainflip/health.sh
 ```
