@@ -11,4 +11,5 @@ docker-compose logs -f
 ```bash
 docker exec -it chainflip-geth geth attach --datadir /root/.ethereum/rinkeby
 net.peerCount
+eth.syncing
 ```
