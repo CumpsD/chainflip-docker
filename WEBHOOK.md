@@ -20,8 +20,6 @@ NODE_STATUS=$(curl 'https://state-chain-cache.chainflip.io/graphql' -s \
   --data-binary '{"query":"{query:auctions{bids {nodeId, nodeStatus}}}"}' \
   --compressed | jq -r --arg NODE_ID "$NODE_ID"  '.data.query[0].bids[] | select(.nodeId==$NODE_ID) | .nodeStatus')
 
-echo $NODE_STATUS
-
 if [ $NODE_STATUS = "active" ] || [ $NODE_STATUS = "backup" ] || [ $NODE_STATUS = "online" ]; then
   echo "Node Online"
 else
