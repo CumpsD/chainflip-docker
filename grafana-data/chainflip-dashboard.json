@@ -217,6 +217,7 @@
             "uid": "${DS_LOKI}"
           },
           "expr": "{container_name=\"ghcr.io/cumpsd/chainflip-node:latest\"}",
+          "maxLines": 100,
           "refId": "A"
         }
       ],
@@ -253,6 +254,7 @@
             "uid": "${DS_LOKI}"
           },
           "expr": "{container_name=\"ghcr.io/cumpsd/chainflip-engine:latest\"}",
+          "maxLines": 100,
           "refId": "A"
         }
       ],
@@ -275,6 +277,6 @@
   "timezone": "",
   "title": "Chainflip",
   "uid": "pVFjM9o7z",
-  "version": 3,
+  "version": 6,
   "weekStart": ""
 }
