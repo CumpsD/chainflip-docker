@@ -260,6 +260,7 @@
       "type": "logs"
     }
   ],
+  "refresh": "10s",
   "schemaVersion": 34,
   "style": "dark",
   "tags": [],
@@ -267,13 +268,13 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Chainflip",
   "uid": "pVFjM9o7z",
-  "version": 4,
+  "version": 3,
   "weekStart": ""
 }
