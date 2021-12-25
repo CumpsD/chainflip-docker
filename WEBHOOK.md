@@ -29,11 +29,13 @@ NODE_STATUS=$(curl 'https://state-chain-cache.chainflip.io/graphql' -s \
 if [ $NODE_STATUS = "active" ] || [ $NODE_STATUS = "backup" ] || [ $NODE_STATUS = "online" ]; then
   echo "Node Online"
 else
- echo "Node Offline"
- curl \
-   -H "Content-Type: application/json" \
-   -d '{"username": "chainflip", "content": "Bad news...Chainflip Node '"$NODE_ID"' is offline!"}' \
-   $WEBHOOK_URL
+  echo "Node Offline"
+  curl \
+    -H "Content-Type: application/json" \
+    -d '{"username": "chainflip", "content": "Bad news...Chainflip Node '"$NODE_ID"' is offline!"}' \
+    $WEBHOOK_URL
+  systemctl restart chainflip-node
+  systemctl restart chainflip-engine
 fi
 ```
 
