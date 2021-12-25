@@ -1,5 +1,10 @@
 # Setting up a Chainflip Node
 
+## Requirements
+
+* AWS t3a.large instance or better
+* 400GB Diskspace or more
+
 ## Prepare an instance
 
 Start a fresh Ubuntu server and run the following commands.
