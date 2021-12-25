@@ -1,8 +1,12 @@
 config/*
 !config/chainflip.toml
+!config/prometheus.yml
 
-chaindata/
 chaindata/*
 
-geth-data/
 geth-data/*
+
+grafana-data/*
+!grafana-data/grafana.db
+
+prometheus-data/*

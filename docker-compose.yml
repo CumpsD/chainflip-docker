@@ -16,6 +16,7 @@ services:
       - ./config:/chainflip/config
 
   geth:
+    # http://127.0.0.1:6060/debug/metrics/prometheus
     container_name: chainflip-geth
     image: ethereum/client-go:alltools-stable
     logging: *default-logging
@@ -23,12 +24,13 @@ services:
     networks:
       - chainflip
     ports:
-      - 30303:30303
+      - 30303:30303 # ETH Port
     expose:
-      - 8546
+      - 30301 # Metrics Port
+      - 8546  # WS Port
     volumes:
       - ./geth-data:/root/.ethereum
-    command: geth --rinkeby --syncmode "snap" --ws --ws.addr "0.0.0.0" --ws.origins "*"
+    command: geth --rinkeby --syncmode "snap" --ws --ws.addr 0.0.0.0 --ws.origins "*" --metrics --metrics.addr 0.0.0.0 --metrics.port 30301 --pprof --pprof.addr 0.0.0.0 --pprof.port 30302
 
   chainflip-node:
     container_name: chainflip-node
@@ -64,6 +66,38 @@ services:
       - keys
       - geth
       - chainflip-node
+
+  prometheus:
+    # http://127.0.0.1:9090/graph
+    image: prom/prometheus
+    container_name: chainflip-prometheus
+    logging: *default-logging
+    restart: always
+    networks:
+      - chainflip
+    ports:
+      - 9090:9090
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus-data:/prometheus
+    depends_on:
+      - geth
+      - chainflip-node
+
+  grafana:
+    image: grafana/grafana-oss
+    container_name: chainflip-grafana
+    logging: *default-logging
+    restart: always
+    networks:
+      - chainflip
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana-data:/var/lib/grafana/
+    depends_on:
+      prometheus:
+        condition: service_started
 
 networks:
   chainflip:
