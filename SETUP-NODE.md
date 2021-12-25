@@ -114,3 +114,9 @@ Session key rotated at tx 0xa671c8ea4583e1b4c3eb136603285f1652a0836afe47e1397349
 ```
 
 You can use this tx to look it up on the [Explorer App](https://not.yet).
+
+## Monitoring
+
+When the stack is running, you can surf to your external ip on port 3000 to view Grafana.
+
+The default login is admin / admin.
