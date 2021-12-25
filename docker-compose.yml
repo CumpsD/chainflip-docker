@@ -74,6 +74,7 @@ services:
     container_name: chainflip-prometheus
     logging: *default-logging
     restart: always
+    user: root
     networks:
       - chainflip
     ports:
@@ -90,6 +91,7 @@ services:
     container_name: chainflip-grafana
     logging: *default-logging
     restart: always
+    user: root
     networks:
       - chainflip
     ports:
