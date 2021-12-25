@@ -21,7 +21,7 @@ cat config/ethereum_key
 
 The following ports should be opened on your firewall:
 
-* 9615 TCP, used by Prometheus
+* 3000 TCP, used by Grafana
 * 30303 TCP & UDP, used by Geth
 * 30333 TCP & UDP, used by Chainflip Node
 

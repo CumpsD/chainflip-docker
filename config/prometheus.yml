@@ -18,3 +18,11 @@ scrape_configs:
   scheme: http
   static_configs:
   - targets: ['chainflip-geth:30301']
+
+- job_name: chainflip
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets: ['chainflip-node:9615']

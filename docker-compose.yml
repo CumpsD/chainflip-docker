@@ -24,7 +24,7 @@ services:
     networks:
       - chainflip
     ports:
-      - 30303:30303 # ETH Port
+      - 30303:30303 # ETH Network Port
     expose:
       - 30301 # Metrics Port
       - 8546  # WS Port
@@ -33,6 +33,7 @@ services:
     command: geth --rinkeby --syncmode "snap" --ws --ws.addr 0.0.0.0 --ws.origins "*" --metrics --metrics.addr 0.0.0.0 --metrics.port 30301 --pprof --pprof.addr 0.0.0.0 --pprof.port 30302
 
   chainflip-node:
+    # http://127.0.0.1:9615
     container_name: chainflip-node
     image: ghcr.io/cumpsd/chainflip-node:latest
     logging: *default-logging
@@ -40,11 +41,11 @@ services:
     networks:
       - chainflip
     ports:
-      - 30333:30333
-      - 9615:9615
+      - 30333:30333 # Chainflip Network Port
     expose:
-      - 9944
+      - 9615 # Metrics Port
       - 9933
+      - 9944 # RPC Port
     volumes:
       - ./config:/chainflip/config:ro
       - ./chaindata:/chainflip/chaindata
