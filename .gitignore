@@ -1,6 +1,8 @@
 config/*
 !config/chainflip.toml
 !config/prometheus.yml
+!config/loki.yml
+!config/promtail.yml
 
 chaindata/*
 
