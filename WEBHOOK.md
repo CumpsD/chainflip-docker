@@ -34,8 +34,12 @@ else
     -H "Content-Type: application/json" \
     -d '{"username": "chainflip", "content": "Bad news...Chainflip Node '"$NODE_ID"' is offline!"}' \
     $WEBHOOK_URL
-  systemctl restart chainflip-node
-  systemctl restart chainflip-engine
+
+  docker restart chainflip-node
+  docker restart chainflip-engine
+
+  #systemctl restart chainflip-node
+  #systemctl restart chainflip-engine
 fi
 ```
 
