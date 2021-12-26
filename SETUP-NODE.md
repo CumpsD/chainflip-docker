@@ -3,7 +3,7 @@
 ## Requirements
 
 * AWS t3a.large instance or better
-* 400GB Diskspace or more
+* 250GB Diskspace or more
 
 ## Prepare an instance
 
