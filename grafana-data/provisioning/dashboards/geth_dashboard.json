@@ -1,41 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": [],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "8.3.3"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph (old)",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -59,8 +22,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
-  "iteration": 1640533312141,
+  "id": 1,
+  "iteration": 1640535505483,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -84,7 +47,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -183,7 +146,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -282,7 +245,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -387,7 +350,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -479,7 +442,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1516,15 +1479,17 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 0,
         "y": 40
       },
+      "hiddenSeries": false,
       "id": 35,
       "legend": {
         "avg": false,
@@ -1539,6 +1504,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "8.3.3",
       "pointradius": 5,
@@ -1615,15 +1583,17 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 8,
         "y": 40
       },
+      "hiddenSeries": false,
       "id": 118,
       "legend": {
         "avg": false,
@@ -1638,6 +1608,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "8.3.3",
       "pointradius": 5,
@@ -1714,15 +1687,17 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 16,
         "y": 40
       },
+      "hiddenSeries": false,
       "id": 119,
       "legend": {
         "alignAsTable": false,
@@ -1739,6 +1714,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "8.3.3",
       "pointradius": 5,
@@ -1814,15 +1792,17 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 0,
         "y": 47
       },
+      "hiddenSeries": false,
       "id": 120,
       "legend": {
         "avg": false,
@@ -1837,6 +1817,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "8.3.3",
       "pointradius": 5,
@@ -1901,15 +1884,17 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "TpDCOro7z"
       },
       "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 12,
         "y": 47
       },
+      "hiddenSeries": false,
       "id": 56,
       "legend": {
         "avg": false,
@@ -1924,6 +1909,9 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "8.3.3",
       "pointradius": 5,
@@ -2001,10 +1989,14 @@
     "list": [
       {
         "allValue": "txpool_invalid",
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "TpDCOro7z"
         },
         "definition": "{job=\"geth\"}",
         "hide": 2,
@@ -2127,6 +2119,6 @@
   "timezone": "",
   "title": "Geth",
   "uid": "FPpjH6Hik",
-  "version": 2,
+  "version": 5,
   "weekStart": ""
 }

@@ -9,7 +9,6 @@ chaindata/*
 geth-data/*
 
 grafana-data/*
-!grafana-data/chainflip-dashboard.json
-!grafana-data/geth-dashboard.json
+!grafana-data/provisioning
 
 prometheus-data/*

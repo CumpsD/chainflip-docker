@@ -138,6 +138,7 @@ services:
       - 3000:3000
     volumes:
       - ./grafana-data:/var/lib/grafana/
+      - ./grafana-data/provisioning/:/etc/grafana/provisioning/:ro
     depends_on:
       prometheus:
         condition: service_started
