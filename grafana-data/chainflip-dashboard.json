@@ -563,23 +563,21 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "10s",
   "schemaVersion": 34,
   "style": "dark",
   "tags": [
     "substrate",
     "blockchain",
     "node",
-    "template",
     "polkadot",
-    "kusama",
     "chainflip"
   ],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -599,6 +597,6 @@
   "timezone": "",
   "title": "Chainflip",
   "uid": "PUYzGbwWz",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }
