@@ -11,7 +11,7 @@ node_endpoint = "ws://chainflip-geth:8546"
 private_key_file = "/chainflip/config/ethereum_key"
 
 [health_check]
-hostname = "0.0.0.0"
+hostname = "127.0.0.1"
 port = 5555
 
 [signing]
