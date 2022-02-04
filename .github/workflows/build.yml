@@ -5,6 +5,7 @@ on: [push, workflow_dispatch]
 env:
   DOCKER_REGISTRY: ghcr.io
   CHAINFLIP_VERSION: 0.2.0
+  SUBKEY_VERSION: 0.1.0
 
 jobs:
   build:
@@ -63,6 +64,7 @@ jobs:
           labels: ${{ steps.meta-engine.outputs.labels }}
           build-args: |
             "CHAINFLIP_VERSION=${{ env.CHAINFLIP_VERSION }}"
+            "SUBKEY_VERSION=${{ env.SUBKEY_VERSION }}"
 
       - name: Generate cli metadata
         id: meta-cli
@@ -88,6 +90,7 @@ jobs:
           labels: ${{ steps.meta-cli.outputs.labels }}
           build-args: |
             "CHAINFLIP_VERSION=${{ env.CHAINFLIP_VERSION }}"
+            "SUBKEY_VERSION=${{ env.SUBKEY_VERSION }}"
 
       - name: Generate node metadata
         id: meta-node
@@ -113,6 +116,7 @@ jobs:
           labels: ${{ steps.meta-node.outputs.labels }}
           build-args: |
             "CHAINFLIP_VERSION=${{ env.CHAINFLIP_VERSION }}"
+            "SUBKEY_VERSION=${{ env.SUBKEY_VERSION }}"
 
       - name: Generate subkey metadata
         id: meta-subkey
@@ -138,6 +142,7 @@ jobs:
           labels: ${{ steps.meta-subkey.outputs.labels }}
           build-args: |
             "CHAINFLIP_VERSION=${{ env.CHAINFLIP_VERSION }}"
+            "SUBKEY_VERSION=${{ env.SUBKEY_VERSION }}"
 
       - name: Generate keys metadata
         id: meta-keys
@@ -163,6 +168,7 @@ jobs:
           labels: ${{ steps.meta-keys.outputs.labels }}
           build-args: |
             "CHAINFLIP_VERSION=${{ env.CHAINFLIP_VERSION }}"
+            "SUBKEY_VERSION=${{ env.SUBKEY_VERSION }}"
 
       # - name: Create Release
       #   id: create_release
