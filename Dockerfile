@@ -14,26 +14,9 @@ RUN apt-get update && \
 
 ARG CHAINFLIP_VERSION
 
-#ENV CHAINFLIP_TAR="chainflip.tar.gz"
-#ENV CHAINFLIP_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/${CHAINFLIP_TAR}" \
-#    SUBKEY_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/subkey"
-
-# Emergency 0.1.1 release
-ENV CHAINFLIP_TAR="9e46ae2c68a969793597901c5d65770e54ea890d.zip"
-ENV CHAINFLIP_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/archive/${CHAINFLIP_TAR}" \
-    SUBKEY_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v0.1.0-soundcheck/subkey"
-
-# RUN \
-#     mkdir /chainflip && \
-#     mkdir /chainflip/config && \
-#     mkdir /chainflip/chaindata && \
-#     cd /chainflip && \
-#     wget $CHAINFLIP_RELEASE_URL && \
-#     tar xvzf $CHAINFLIP_TAR && \
-#     rm $CHAINFLIP_TAR && \
-#     mv chainflip-v$CHAINFLIP_VERSION bin && \
-#     wget $SUBKEY_RELEASE_URL -P bin && \
-#     chmod +x bin/*
+ENV CHAINFLIP_TAR="chainflip.tar.gz"
+ENV CHAINFLIP_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/${CHAINFLIP_TAR}" \
+    SUBKEY_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/subkey"
 
 RUN \
     mkdir /chainflip && \
@@ -41,9 +24,9 @@ RUN \
     mkdir /chainflip/chaindata && \
     cd /chainflip && \
     wget $CHAINFLIP_RELEASE_URL && \
-    unzip $CHAINFLIP_TAR && \
+    tar xvzf $CHAINFLIP_TAR && \
     rm $CHAINFLIP_TAR && \
-    mv chainflip-bin-9e46ae2c68a969793597901c5d65770e54ea890d bin && \
+    mv chainflip-v$CHAINFLIP_VERSION bin && \
     wget $SUBKEY_RELEASE_URL -P bin && \
     chmod +x bin/*
 
