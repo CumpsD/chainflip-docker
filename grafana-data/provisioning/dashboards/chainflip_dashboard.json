@@ -29,6 +29,56 @@
   "panels": [
     {
       "datasource": {
+        "type": "loki",
+        "uid": "VLejO9T7k"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 25,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "VLejO9T7k"
+          },
+          "expr": "{container_name=\"ghcr.io/cumpsd/chainflip-engine:latest\"} |= \"Call::heartbeat\" | json | line_format \"{{.msg}}\"",
+          "legendFormat": "haertbeat",
+          "maxLines": 50,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "VLejO9T7k"
+          },
+          "expr": "{container_name=\"ghcr.io/cumpsd/chainflip-engine:latest\"} |= \"Call::witness_vault_key_rotated\" | json | line_format \"{{.msg}}\"",
+          "hide": false,
+          "legendFormat": "witness_vault_key_rotated",
+          "maxLines": 50,
+          "refId": "B"
+        }
+      ],
+      "title": "Interesting Events",
+      "transformations": [],
+      "type": "logs"
+    },
+    {
+      "datasource": {
         "type": "prometheus",
         "uid": "TpDCOro7z"
       },
@@ -47,6 +97,12 @@
           }
         },
         "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 0,
+        "y": 5
       },
       "id": 12,
       "options": {
@@ -100,7 +156,7 @@
         "h": 3,
         "w": 6,
         "x": 6,
-        "y": 0
+        "y": 5
       },
       "id": 13,
       "options": {
@@ -139,7 +195,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 0
+        "y": 5
       },
       "id": 19,
       "options": {
@@ -195,7 +251,7 @@
         "h": 3,
         "w": 6,
         "x": 0,
-        "y": 3
+        "y": 8
       },
       "id": 16,
       "options": {
@@ -258,7 +314,7 @@
         "h": 3,
         "w": 6,
         "x": 6,
-        "y": 3
+        "y": 8
       },
       "id": 17,
       "options": {
@@ -290,7 +346,7 @@
     },
     {
       "aliasColors": {},
-      "bars": true,
+      "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": {
@@ -310,7 +366,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 6
+        "y": 11
       },
       "hiddenSeries": false,
       "id": 10,
@@ -332,8 +388,8 @@
       },
       "percentage": false,
       "pluginVersion": "8.3.3",
-      "pointradius": 2,
-      "points": true,
+      "pointradius": 0.5,
+      "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -393,7 +449,7 @@
         "h": 11,
         "w": 12,
         "x": 12,
-        "y": 11
+        "y": 16
       },
       "id": 21,
       "options": {
@@ -402,7 +458,7 @@
         "prettifyLogMessage": false,
         "showCommonLabels": false,
         "showLabels": false,
-        "showTime": false,
+        "showTime": true,
         "sortOrder": "Descending",
         "wrapLogMessage": false
       },
@@ -412,7 +468,7 @@
             "type": "loki",
             "uid": "VLejO9T7k"
           },
-          "expr": "{container_name=\"ghcr.io/cumpsd/chainflip-engine:latest\"}",
+          "expr": "{container_name=\"ghcr.io/cumpsd/chainflip-engine:latest\"} | json | line_format \"{{.msg}}\"",
           "maxLines": 50,
           "refId": "A"
         }
@@ -436,7 +492,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 15,
@@ -506,9 +562,45 @@
       "yaxis": {
         "align": false
       }
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "VLejO9T7k"
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 23,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "VLejO9T7k"
+          },
+          "expr": "{container_name=\"ethereum/client-go:alltools-stable\"}",
+          "maxLines": 100,
+          "refId": "A"
+        }
+      ],
+      "title": "Geth",
+      "type": "logs"
     }
   ],
-  "refresh": "10s",
+  "refresh": false,
   "schemaVersion": 34,
   "style": "dark",
   "tags": [
@@ -522,7 +614,7 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -542,6 +634,6 @@
   "timezone": "",
   "title": "Chainflip",
   "uid": "PUYzGbwWz",
-  "version": 6,
+  "version": 21,
   "weekStart": ""
 }
