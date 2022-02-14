@@ -90,13 +90,13 @@ chainflip-engine    | thread 'main' panicked at 'Failed to connect to state chai
 chainflip-engine    | note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
-Go to the [Staking App](https://not.yet/) and click [My Nodes](https://not.yet)
+Go to the [Staking App](https://stake.chainflip.io/) and click [My Nodes](https://stake.chainflip.io/nodes)
 
 Click **+ Add a node** and stake your FLIP with the Validator Id you retrieved earlier.
 
 Sign the transaction and wait until it is confirmed. The transaction will look something like this: [0x156a03a1c92dd5e0f1806d2c2605f11cc732a7a887765ad2a0b39e7cd5bdf384](https://rinkeby.etherscan.io/tx/0x156a03a1c92dd5e0f1806d2c2605f11cc732a7a887765ad2a0b39e7cd5bdf384)
 
-At this point your node should appear on the [Staking App](https://not.yet/).
+At this point your node should appear on the [Staking App](https://stake.chainflip.io/nodes).
 
 ## Set Validator keys
 
@@ -113,7 +113,7 @@ Connecting to state chain node at: `ws://chainflip-node:9944` and using private 
 Session key rotated at tx 0xa671c8ea4583e1b4c3eb136603285f1652a0836afe47e1397349a32ad711f711.
 ```
 
-You can use this tx to look it up on the [Explorer App](https://not.yet).
+You can use this tx to look it up on the [Explorer App](https://blocks.chainflip.io/).
 
 ## Monitoring
 
