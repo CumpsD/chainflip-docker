@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 env:
   DOCKER_REGISTRY: ghcr.io
-  CHAINFLIP_VERSION: 0.2.2
+  CHAINFLIP_VERSION: 0.2.3
   SUBKEY_VERSION: 0.1.0
 
 jobs:

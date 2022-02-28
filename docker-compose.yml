@@ -28,6 +28,7 @@ services:
       - 30303:30303 # ETH Network Port
     expose:
       - 30301 # Metrics Port
+      - 8545  # HTTP Port
       - 8546  # WS Port
     volumes:
       - ./geth-data:/root/.ethereum
