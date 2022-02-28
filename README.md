@@ -28,6 +28,7 @@ The following ports should be opened on your firewall:
 ## Updating
 
 ```bash
+git pull
 docker-compose pull
 docker-compose up -d --remove-orphans
 docker image prune
