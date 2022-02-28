@@ -32,7 +32,7 @@ services:
       - 8546  # WS Port
     volumes:
       - ./geth-data:/root/.ethereum
-    command: geth --rinkeby --syncmode "snap" --ws --ws.addr 0.0.0.0 --ws.origins "*" --metrics --metrics.addr 0.0.0.0 --metrics.port 30301 --pprof --pprof.addr 0.0.0.0 --pprof.port 30302
+    command: geth --rinkeby --syncmode "snap" --http --http.addr 0.0.0.0 --http.corsdomain '*' --ws --ws.addr 0.0.0.0 --ws.origins "*" --metrics --metrics.addr 0.0.0.0 --metrics.port 30301 --pprof --pprof.addr 0.0.0.0 --pprof.port 30302
 
   chainflip-node:
     # http://127.0.0.1:9615
