@@ -8,7 +8,7 @@ signing_key_file = "/chainflip/config/signing_key"
 [eth]
 from_block = 9810000
 ws_node_endpoint = "ws://chainflip-geth:8546"
-http_node_endpoint = "ws://chainflip-geth:8545"
+http_node_endpoint = "http://chainflip-geth:8545"
 private_key_file = "/chainflip/config/ethereum_key"
 
 [health_check]
