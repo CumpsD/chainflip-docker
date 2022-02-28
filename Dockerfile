@@ -16,7 +16,7 @@ ARG CHAINFLIP_VERSION
 ARG SUBKEY_VERSION
 
 ENV CHAINFLIP_TAR="chainflip.tar.gz"
-ENV CHAINFLIP_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck/${CHAINFLIP_TAR}" \
+ENV CHAINFLIP_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${CHAINFLIP_VERSION}-soundcheck-soundcheck/${CHAINFLIP_TAR}" \
     SUBKEY_RELEASE_URL="https://github.com/chainflip-io/chainflip-bin/releases/download/v${SUBKEY_VERSION}-soundcheck/subkey"
 
 RUN \
