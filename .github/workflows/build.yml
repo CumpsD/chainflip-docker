@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate engine metadata
         id: meta-engine
-        uses: docker/metadata-action@v3.6.2
+        uses: docker/metadata-action@v3.7.0
         with:
           images: |
             ghcr.io/cumpsd/chainflip-engine
@@ -68,7 +68,7 @@ jobs:
 
       - name: Generate cli metadata
         id: meta-cli
-        uses: docker/metadata-action@v3.6.2
+        uses: docker/metadata-action@v3.7.0
         with:
           images: |
             ghcr.io/cumpsd/chainflip-cli
@@ -94,7 +94,7 @@ jobs:
 
       - name: Generate node metadata
         id: meta-node
-        uses: docker/metadata-action@v3.6.2
+        uses: docker/metadata-action@v3.7.0
         with:
           images: |
             ghcr.io/cumpsd/chainflip-node
@@ -120,7 +120,7 @@ jobs:
 
       - name: Generate subkey metadata
         id: meta-subkey
-        uses: docker/metadata-action@v3.6.2
+        uses: docker/metadata-action@v3.7.0
         with:
           images: |
             ghcr.io/cumpsd/chainflip-subkey
@@ -146,7 +146,7 @@ jobs:
 
       - name: Generate keys metadata
         id: meta-keys
-        uses: docker/metadata-action@v3.6.2
+        uses: docker/metadata-action@v3.7.0
         with:
           images: |
             ghcr.io/cumpsd/chainflip-keys
