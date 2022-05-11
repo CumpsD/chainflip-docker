@@ -27,7 +27,7 @@ RUN \
     wget $CHAINFLIP_RELEASE_URL && \
     tar xvzf $CHAINFLIP_TAR && \
     rm $CHAINFLIP_TAR && \
-    mv chainflip-v$CHAINFLIP_VERSION-soundcheck bin && \
+    mv chainflip-v$CHAINFLIP_VERSION bin && \
     wget $SUBKEY_RELEASE_URL -P bin && \
     chmod +x bin/*
 
