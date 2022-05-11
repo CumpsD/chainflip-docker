@@ -5,6 +5,7 @@ config/*
 !config/promtail.yml
 
 chaindata/*
+chaindata-two/*
 
 geth-data/*
 

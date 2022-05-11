@@ -50,7 +50,7 @@ services:
       - 9944 # RPC Port
     volumes:
       - ./config:/chainflip/config:ro
-      - ./chaindata:/chainflip/chaindata
+      - ./chaindata-two:/chainflip/chaindata
     depends_on:
       - keys
       - geth
@@ -64,7 +64,7 @@ services:
       - chainflip
     volumes:
       - ./config:/chainflip/config:ro
-      - ./chaindata:/chainflip/chaindata:ro
+      - ./chaindata-two:/chainflip/chaindata:ro
     depends_on:
       - keys
       - geth

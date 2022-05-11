@@ -49,7 +49,7 @@ EXPOSE 9615
 EXPOSE 30333
 ENTRYPOINT [ "" ]
 CMD /chainflip/bin/chainflip-node \
-    --chain soundcheck \
+    --chain soundcheck-two \
     --base-path /chainflip/chaindata \
     --node-key-file /chainflip/config/node_key \
     --in-peers 500 \
@@ -64,7 +64,7 @@ CMD /chainflip/bin/chainflip-node \
     --no-mdns \
     --rpc-cors "all" \
     --rpc-methods "Unsafe" \
-    --bootnodes /ip4/165.22.70.65/tcp/30333/p2p/12D3KooW9yoE6qjRG9Bp5JB2JappsU9V5bck1nUDSNRR2ye3dFbU
+    --bootnodes /ip4/159.89.109.250/tcp/30333/p2p/12D3KooWFD3YMDyQocSQBAx6VCcUruYihi6xYufduzf321FnvvoY
 
 FROM base AS subkey
 ENTRYPOINT [ "/chainflip/bin/subkey" ]
